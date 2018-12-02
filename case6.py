@@ -32,7 +32,7 @@ def rows2(x,y):
     left(60)
     down()
 
-def draw(x, color1="yellow", color2="green"):
+def draw_picture(x, color1="yellow", color2="green"):
     col1 = color1
     col2 = color2
     if not x % 2:
@@ -80,7 +80,7 @@ def main():
     goto(-250, 250 - 500 / (2 * n))
     left(90)
     down()
-    draw(n, c1, c2)
+    draw_picture(n, c1, c2)
     done()
 
 if __name__ == '__main__':
