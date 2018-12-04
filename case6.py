@@ -18,7 +18,7 @@ def get_color_choice1():
                 valid_input1 = True
             else:
                 valid_input1 = False
-    print("Выбранный первый цвет:", color1, '.')
+                print("Неверный ввод, попробуйте ещё раз.")
     return turtle_colors(color1)
 
 def get_color_choice2():
@@ -28,10 +28,10 @@ def get_color_choice2():
             print("Меню доступных цветов: красный, синий, зеленый, желтый, оранжевый, пурпурный, розовый")
             color2 = input("Введите второй цвет: ").lower()
             if color2 in colors:
-               valid_input2 = True
+                valid_input2 = True
             else:
-               valid_input2 = False
-    print("Выбранный второй цвет:",color2,'.')
+                valid_input2 = False
+                print("Неверный ввод, попробуйте ещё раз.")
     return turtle_colors(color2)
 
 def turtle_colors(x):
@@ -49,7 +49,7 @@ def turtle_colors(x):
             x = 'purple'
         elif x == 'розовый':
             x == 'pink'
-
+        return x
 
 def get_num_hexagons():
     ran = ['4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
@@ -60,9 +60,10 @@ def get_num_hexagons():
             valid_input3 = True
         else:
             valid_input3 = False
+            print("Неверный ввод, попробуйте ещё раз.")
     print('Выбранное количество: ', kol)
+    return kol
 
 print(turtle_colors(get_color_choice1()))
 print(turtle_colors(get_color_choice2()))
 get_num_hexagons()
-
