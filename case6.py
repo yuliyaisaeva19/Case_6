@@ -1,9 +1,67 @@
 """Case-study #5 Тесселяция
 Разработчики:
-Shmatov D., Bayanova A.
+Shmatov D. 80%, Bayanova A. 70%
 """
 
 from turtle import *
+
+def get_color_choice1():
+    colors = ['красный', 'синий', 'зеленый', 'желтый', 'оранжевый', 'пурпурный', 'розовый']
+    valid_input1 = False
+    while not valid_input1:
+            print("Меню доступных цветов: красный, синий, зеленый, желтый, оранжевый, пурпурный, розовый")
+            color1 = input("Введите первый цвет: ").lower()
+            if color1 in colors:
+                valid_input1 = True
+            else:
+                valid_input1 = False
+                print("Неверный ввод, попробуйте ещё раз.")
+    return turtle_colors(color1)
+
+def get_color_choice2():
+    colors = ['красный', 'синий', 'зеленый', 'желтый', 'оранжевый', 'пурпурный', 'розовый']
+    valid_input2 = False
+    while not valid_input2:
+            print("Меню доступных цветов: красный, синий, зеленый, желтый, оранжевый, пурпурный, розовый")
+            color2 = input("Введите второй цвет: ").lower()
+            if color2 in colors:
+                valid_input2 = True
+            else:
+                valid_input2 = False
+                print("Неверный ввод, попробуйте ещё раз.")
+    return turtle_colors(color2)
+
+def turtle_colors(x):
+        if x == 'красный':
+            x = 'red'
+        elif x == 'синий':
+            x = 'blue'
+        elif x == 'зеленый':
+            x = 'green'
+        elif x == 'желтый':
+            x = 'yellow'
+        elif x == 'оранжевый':
+            x = 'orange'
+        elif x == 'пурпурный':
+            x = 'purple'
+        elif x == 'розовый':
+            x = 'pink'
+        return x
+
+def get_num_hexagons():
+    ran = ['4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
+    valid_input3 = False
+    while not valid_input3:
+        kol = input("Введите количество многоугольников (от 4 до 20): ")
+        if kol in ran:
+            valid_input3 = True
+        else:
+            valid_input3 = False
+            print("Неверный ввод, попробуйте ещё раз.")
+    print('Выбранное количество: ', kol)
+    return kol
+
+
 
 def size_hex(y):
     hex1 = 500/(2*y)
@@ -68,18 +126,21 @@ def draw_picture(x, color1="yellow", color2="green"):
             draw_hex(x)
             end_fill()
 
-
-def main():
-    Screen()
-    screensize(500, 500)
-    speed(0)
-    color = textinput("Color", "Write color of hexes").split()
-    c1, c2 = map(str, color)
-    n = numinput("Number of hexes", "Input number")
+def first_pos(n):
     up()
     goto(-250, 250 - 500 / (2 * n))
     left(90)
     down()
+
+
+def main():
+    c1 = turtle_colors(get_color_choice1())
+    c2 = turtle_colors(get_color_choice2())
+    n = int(get_num_hexagons())
+    Screen()
+    screensize(500, 500)
+    speed(0)
+    first_pos(n)
     draw_picture(n, c1, c2)
     done()
 
